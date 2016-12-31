@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+$footer-font: 'Roboto', sans-serif;
+$link-bg: #F0F0F0;
+$link-border: #C6C6C6;
+
+.footer-dir-outer-wrap {
+  position: relative;
+  width: 100%;
+  font-family: $footer-font;
+  padding: 15px 30px;
+  border-top: solid 1px rgba(148,148,148,.3);
+  background: white;
+  .top-buttons-wrap {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    .mr {
+      margin-right: 14px;
+    }
+    .you-tube-icon {
+      width: 73.5px;
+      height: 30px;
+      background: url('./../../../Images/yt-logo.svg');
+      // background-size: 435px 425px;
+      background-repeat: no-repeat;
+      cursor: pointer;
+    }
+    .border {
+      border: solid 1px $link-border;
+      border-radius: 2px;
+      padding: 5px 7px;
+    }
+    .language-wrap {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 28px;
+      background-color: $link-bg;
+      cursor: pointer;
+      .language-icon {
+        background: url('./../../../Images/footer-dir-icons.webp') -96px -148px no-repeat;
+        background-size: 435px 425px;
+        width: 25.5px;
+        height: 15px;
+        opacity: .5;
+        margin-right: 5px;
+      }
+      .language {}
+    }
+    .location-wrap {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 28px;
+      background-color: $link-bg;
+      cursor: pointer;
+      .location {}
+    }
+    .restricted {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 28px;
+      background-color: $link-bg;
+    }
+    .history-wrap {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: $link-bg;
+      cursor: pointer;
+      .history-icon {
+        background: no-repeat url('./../../../Images/footer-dir-icons.webp') -422.5px -8.5px;
+        background-size: auto;
+        width: 12px;
+        height: 15px;
+        opacity: .5;
+        margin-right: 5px;
+      }
+      .history {}
+    }
+    .help-wrap {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: $link-bg;
+      cursor: pointer;
+      .help-icon {
+        background: url('./../../../Images/footer-hourglass-icon.webp') -547px -132px no-repeat;
+        background-size: auto;
+        width: 15px;
+        height: 16px;
+        opacity: .5;
+        margin-right: 5px;
+      }
+      .help {}
+    }
+  }
+  .top-links {
+    display: flex;
+    font-size: 12px;
+    font-weight: bold;
+    color: #333;
+    .mr {
+      margin-right: 15px;
+    }
+    .about {
+      cursor: pointer;
+    }
+    .press {
+      cursor: pointer;
+    }
+    .copyright {
+      cursor: pointer;
+    }
+    .creators {
+      cursor: pointer;
+    }
+    .advertise {
+      cursor: pointer;
+    }
+    .developers {
+      cursor: pointer;
+    }
+    .youtube {
+      cursor: pointer;
+    }
+  }
+  .bottom-links {
+    margin-top: 10px;
+    display: flex;
+    font-size: 12px;
+    color: #666;
+    .margin-r {
+      margin-right: 10px;
+    }
+    .terms {
+      cursor: pointer;
+    }
+    .privacy {
+      cursor: pointer;
+    }
+    .policy {
+      cursor: pointer;
+    }
+    .feedback {
+      cursor: pointer;
+    }
+    .try-something {
+      cursor: pointer;
+    }
+    .copyright {
+      cursor: pointer;
+    }
+  }
+}
+// .example{
+//   text-align: center;
+// }

@@ -1,0 +1,295 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+$pl-font: 'Roboto', sans-serif;
+$pl-outer-bg-color: #F1F1F1;
+$pl-wrap-bg-color: #FFFFFF;
+$pl-text-color: #B5B5B5;
+
+.playlist-outer-container {
+  margin-top: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: $pl-outer-bg-color;
+  font-family: $pl-font;
+  .playlist-wrapper {
+    margin-top: 25px;
+    margin-bottom: 50px;
+    width: 950px;
+    background-color: $pl-wrap-bg-color;
+    .top-vid-wrapper {
+      display: flex;
+      position: relative;
+      .dot-menu {
+        position: absolute;
+        top: 20px;
+        right: 10px;
+        width: 13px;
+        height: 13px;
+        opacity: .8;
+      }
+      .thumbnail {
+        margin: 15px 15px;
+        min-height: 126px;
+        min-width: 225px;
+        .hover-play-all-container {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 100%;
+          height: 100%;
+          background: rgba(0,0,0,.6);
+          cursor: pointer;
+          .hover-inner-wrap {
+            display: flex;
+            .play-icon {
+              width: 0;
+              height: 0;
+              border-top: 7px solid transparent;
+              border-bottom: 7px solid transparent;
+              border-left: 13px solid white;
+              margin-right: 8px;
+              margin-top: 3px;
+            }
+            .play-all {
+              color: white;
+              font-size: 20px;
+            }
+          }
+        }
+      }
+      .video-options-wrapper {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 25px;
+        .watch-later {
+          font-size: 20px;
+          font-weight: 500;
+          margin-bottom: 10px;
+        }
+        .lock-wrapper {
+          display: flex;
+          margin-bottom: 10px;
+          .lock {
+            background: no-repeat url("./../../../Images/playlistView.webp") -656px -252px;
+            background-size: auto;
+            width: 20px;
+            height: 20px;
+            opacity: .5;
+            margin-right: 3px;
+          }
+          .line {
+            padding-top: 5px;
+            margin: 0 10px;
+          }
+          .videos {
+            margin-right: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 15px;
+            color: #797979;
+          }
+          .updated {}
+        }
+        .play-all-wrapper {
+          display: flex;
+          justify-content: space-between;
+          .links-wrap {
+            display: flex;
+            .play-all-wrap {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              border: solid 1px rgb(198,198,198);
+              background-color: $pl-outer-bg-color;
+              margin-right: 10px;
+              cursor: pointer;
+              .arrow {
+                width: 0;
+                height: 0;
+                border-top: 5px solid transparent;
+                border-bottom: 5px solid transparent;
+                border-left: 9px solid #606060;
+                margin-left: 10px;
+              }
+              .play-all {
+
+                font-size: 12px;
+                padding: 5px;
+                margin-right: 10px;
+              }
+            }
+            .playlist-settings-wrap {
+              background-color: $pl-outer-bg-color;
+              border: solid 1px rgb(198,198,198);
+              margin-right: 10px;
+              cursor: pointer;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              .settings-icon {
+                background: no-repeat url('./../../../Images/playlistView2.webp') -48px -87px;
+                background-size: 435px 425px;
+                width: 16px;
+                height: 16px;
+                opacity: .5;
+                padding: 5px;
+                margin-left: 5px;
+              }
+              .playlist-settings {
+                font-size: 12px;
+                padding: 5px;
+              }
+            }
+            .remove-watched {
+              background-color: $pl-outer-bg-color;
+              font-size: 12px;
+              border: solid 1px rgb(198,198,198);
+              padding: 5px;
+              margin-right: 10px;
+              cursor: pointer;
+            }
+          }
+          .add-videos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: $pl-outer-bg-color;
+            font-size: 12px;
+            border: solid 1px rgb(198,198,198);
+            padding: 5px;
+            margin-right: 10px;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+    .single-video-wrapper {
+      width: 100%;
+      display: flex;
+      border-top: 1px solid rgba(226,226,226, 1);
+      border-bottom: 1px solid rgba(226,226,226, 1);
+      margin-bottom: -1px;
+      padding: 18px 5px;
+      position: relative;
+      .number{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0px 10px;
+        color: #797979;
+        font-size: 13px;
+      }
+      .thumbnail {
+        min-width: 91px;
+        min-height: 53px;
+        cursor: pointer;
+        .thumb-hover-wrap {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 100%;
+          height: 100%;
+          background: rgba(0,0,0,.6);
+          .play-icon {
+            width: 0;
+            height: 0;
+            border-top: 7px solid transparent;
+            border-bottom: 7px solid transparent;
+            border-left: 13px solid white;
+          }
+        }
+      }
+      .info-wrap {
+        display: flex;
+        flex-direction: column;
+        margin-left: 10px;
+        .title {
+          color: #333333;
+          margin-top: 5px;
+          margin-bottom: 8px;
+          font-size: 15px;
+          cursor: pointer;
+        }
+        .linkColor {
+          color: #167AC6;
+        }
+        .underline {
+          text-decoration: underline;
+        }
+        .channel {
+          font-size: 13px;
+          color: #797979;
+          cursor: pointer;
+        }
+      }
+      .duration {
+        position: absolute;
+        top: 20px;
+        right: 11px;
+        color: #797979;
+        font-size: 14px;
+      }
+      .move-video{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 11px;
+        height: 91px;
+        background-color: #FBFBFB;
+        border: 1px solid rgba(226,226,226, 1);
+        margin: -1px 0px 0px 0px;
+        cursor: move;
+        .dots{
+          background: no-repeat url('./../../../Images/footer-dir-icons.webp') -217px -351px;
+          background-size: 435px 425px;
+          width: 2.5px;
+          height: 10.5px;
+        }
+      }
+      // .remove-video-wrap {
+      //   position: absolute;
+      //   top: 0px;
+      //   right: 0px;
+      //   border: 1px solid rgba(226,226,226, 1);
+      //   background: #FBFBFB;
+      //   cursor: pointer;
+      //   .remove-video {
+      //     width: 30px;
+      //     height: 30px;
+      //     background: no-repeat url('./../../../Images/playlistView.webp') -773.5px 0.5px;
+      //     background-size: 4776%;
+      //     opacity: .7;
+      //   }
+      // }
+      .remove-video-wrap {
+        position: absolute;
+        right: 0px;
+        bottom: 0px;
+        height: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #FBFBFB;
+        border: 1px solid rgba(226,226,226, 1);
+        padding: 3px 8px;
+        margin-bottom: -1px;
+        cursor: pointer;
+        color: #CC181E;
+        .remove-x {
+          font-size: 15px;
+          color: #CC181E;
+          margin-right: 7px;
+        }
+        .remove-video{
+          font-size: 13px;
+        }
+      }
+    }
+  }
+}

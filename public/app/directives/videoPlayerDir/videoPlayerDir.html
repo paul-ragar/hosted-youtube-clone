@@ -1,0 +1,112 @@
+<div class="video-player-main-container">
+  <div class="video-container">
+    <iframe id="ytplayer" type="text/html" width="640" height="360"
+      ng-src="{{thisUrl}}"
+      frameborder="0" allowfullscreen></iframe>
+  </div>
+  <div class="video-title-container">
+    <div class="video-title">
+      <h1>{{videoData.snippet.title}}</h1>
+    </div>
+    <div class="author-info-container">
+      <div class="author-info">
+        <div class="author-img">
+          <img ui-sref="channel ({channelId: videoData.snippet.channelId})" ng-src="{{channelData.snippet.thumbnails.default.url}}">
+        </div>
+        <div class="author-channel-info">
+          <div class="author-name">
+            <p ui-sref="channel ({channelId: videoData.snippet.channelId})">{{videoData.snippet.channelTitle}}</p>
+          </div>
+          <div class="subscribe-label-main-wrap">
+            <div class="subscribe-btn-wrap">
+              <div class="subscribe-btn"></div>
+              <div class="subscribe-label">Subscribe</div>
+            </div>
+            <div class="subscription-count">{{channelData.statistics.subscriberCount | number}}</div>
+          </div>
+
+        </div>
+      </div>
+      <div class="view-data-wrapper">
+        <div class="view-count">
+          <p>{{videoData.statistics.viewCount | number}} views</p>
+        </div>
+        <div class="myProgress">
+          <div class="myBar"></div>
+        </div>
+      </div>
+    </div>
+    <div class="video-title-action-buttons">
+      <div class="media-btns">
+        <div class="add-btn btn-hover"></div>
+        <div class="btn-text">Add to</div>
+        <div class="share-button-container" ng-click="share = !share">
+          <div class="share-btn btn-hover"></div>
+          <div class="btn-text">Share</div>
+        </div>
+
+        <div class="more-btn btn-hover"> </div>
+        <div class="btn-text">More</div>
+      </div>
+      <div class="video-reactions">
+        <div class="like-btn"></div>
+        <div class="num-likes btn-text">{{videoData.statistics.likeCount | number}}</div>
+        <div class="dislike-btn"></div>
+        <div class="num-likes btn-text">{{videoData.statistics.dislikeCount | number}}</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="video-share-main-container" ng-show="share" >
+    <div class="share-tabs-wrapper">
+      <div class="button-options">
+        <div class="share-tab" id="share-button"ng-click="work=!work; embed=false; email=false">Share</div>
+        <div class="share-tab" id="embed-button" ng-click="embed = !embed; work=true;email=false">Embed</div>
+        <div class="share-tab" id="email-button" ng-click="email = !email; work=true; embed=false">Email</div>
+      </div>
+      <div class="close-btn" ng-click="share = !share"></div>
+    </div>
+    <div class="share-container" ng-hide="work">
+        <ul class="icon-list">
+          <li class="media-icon" style="background: url('../../Images/you-tube-share-icons.webp') no-repeat 0 -180px"></li>
+          <li class="media-icon" style="background: url('../../Images/you-tube-share-icons.webp') no-repeat 0 -1385px"></li>
+          <li class="media-icon" style="background: url('../../Images/you-tube-share-icons.webp') no-repeat 0 -420px"></li>
+          <li class="media-icon" style="background: url('../../Images/you-tube-share-icons.webp') no-repeat 0 -1112px"></li>
+          <li class="media-icon" style="background: url('../../Images/you-tube-share-icons.webp') no-repeat 0 -1220px"></li>
+          <li class="media-icon" style="background: url('../../Images/you-tube-share-icons.webp') no-repeat 0 -384px"></li>
+          <li class="media-icon" style="background: url('../../Images/you-tube-share-icons.webp') no-repeat 0 -896px"></li>
+          <li class="media-icon" style="background: url('../../Images/you-tube-share-icons.webp') no-repeat 0 -932px"></li>
+          <li class="media-icon" style="background: url('../../Images/you-tube-share-icons.webp') no-repeat 0 0"></li>
+          <li class="media-icon" style="background: url('../../Images/you-tube-share-icons.webp') no-repeat 0 -492px"></li>
+          <li class="media-icon" style="background: url('../../Images/you-tube-share-icons.webp') no-repeat 0 -276px"></li>
+        </ul>
+      <div class="url-share">
+        <input type="text" value="https://youtu.be/{{videoData.id}}">
+      </div>
+    </div>
+
+    <div class="embed-container" ng-hide="!embed">
+      <input type="text" value="<iframe width='560' height='315' src='https://www.youtube.com/embed/{{videoData.id}}' frameborder='0' allowfullscreen></iframe>">
+    </div>
+
+    <div class="email-container-main-wrap" ng-hide="!email">
+      <textarea type="text" class="to-section" placeholder="To"></textarea>
+      <textarea type="text" class="option-message-section" placeholder="Optional message"></textarea>
+      <button type="button" class="send-btn">Send email</button>
+    </div>
+  </div>
+
+  <div class="main-description-wrapper">
+    <div class="publish-date-label">
+      Published On {{videoData.snippet.publishedAt | date: shortDate}}
+    </div>
+    <div class="description-wrapper">
+      <div class="video-description"  ng-bind-html="description | linky" ng-class="{show: show}"></div>
+      <div class="show-more-btn" ng-click="show = !show; more=!more; less=!less">SHOW <span ng-hide="more">MORE</span><span ng-hide="!less">LESS</span></div>
+    </div>
+  </div>
+  <div class="video-comments">
+    <!-- pass video data to comments directive -->
+    <comments-dir vid-id="videoData.id" comment-count="videoData.statistics.commentCount" channel-id="channelData.id"></comments-dir>
+  </div>
+</div>

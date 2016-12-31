@@ -1,0 +1,24 @@
+.video-player-container{
+  position: relative;
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  background-color: #F1F1F1;
+
+  .video-player{
+    margin-top: 60px;
+  }
+  .side-bar-videos{
+    // position: relative;
+    height: 102vh;
+    margin-top: 60px;
+    margin-left: 7px;
+    background: #fff;
+    overflow: hidden;
+    bottom: -10px;
+
+    // display: inline-block;
+    // position: absolute;
+
+  }
+}

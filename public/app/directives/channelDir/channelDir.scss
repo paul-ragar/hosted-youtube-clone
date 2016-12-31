@@ -1,0 +1,439 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500');
+
+$Robo: 'Roboto', sans-serif;
+
+
+.channel-page-background {
+  background-color: #f1f1f1;
+  padding-bottom: 50px;
+  .channel-brand-container {
+    width: 1056px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    .banner-container {
+      height: 288px;
+      width: 1056px;
+      margin-top: 50px;
+      margin-bottom: 10px;
+      background: transparent;
+      border-bottom: 1px solid #e2e2e2;
+      border: 0;
+      background: #fff;
+      box-shadow: 0 1px 2px rgba(0,0,0,.1);
+      .banner-image {
+        height: 176px;
+        width: 1056px;
+        position: relative;
+        .header-links {
+          position: absolute;
+          bottom: 0;
+          right: 15px;
+          display: flex;
+          flex-direction: row;
+          flex-wrap: nowrap;
+          .channel-link {
+            height: 36px;
+            width: 99px;
+            padding: 10px;
+            background-color: rgba(102,102,102,0.5);
+          }
+          .social-links {
+            height: 36px;
+            width: 99px;
+            margin-left: 2px;
+            padding: 10px;
+            background-color: rgba(102,102,102,0.5);
+          }
+        }
+        .logo-a-tag {
+          .logo-img {
+            top: 0;
+            left: 15px;
+            height: 100px;
+            width: 100px;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 100%;
+            position: absolute;
+            box-shadow: rgba(0,0,0,.5) 0 4px 5px -1px;
+            cursor: pointer;
+          }
+        }
+      }
+      .channel-title-container {
+        height: 80px;
+        width: 1056px;
+        position: relative;
+        padding: 15px 0 10px;
+        .inner-title-container {
+          height: 55px;
+          width: 1056px;
+          line-height: 13px;
+          padding: 0 15px;
+          display: flex;
+          justify-content: space-between;
+          flex-direction: row;
+          flex-wrap: nowrap;
+          .title-content-container {
+            height: 33px;
+            width: 1026px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            .title-container {
+              height: 33px;
+              width: 640px;
+              display: flex;
+              align-items: flex-end;
+              .channel-title {
+                padding-right: 20px;
+                line-height: 24px;
+                font-size: 20px;
+                font-family: $Robo;
+                color: #333;
+                font-weight: 500;
+                cursor: pointer;
+              }
+            }
+          }
+          .subscribe-btn-container {
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-end;
+            height: 33px;
+            width: 386px;
+            line-height: 13px;
+            .inner-btn-container {
+              .subscriber-button {
+                width: 170px;
+                height: 24px;
+                display: flex;
+                cursor: pointer;
+                justify-content: flex-end;
+                flex-direction: row;
+                flex-wrap: nowrap;
+                align-items: center;
+                .button-text-container {
+                  display: flex;
+                  flex-direction: row;
+                  flex-wrap: nowrap;
+                  align-items: center;
+                  width: 88.703px;
+                  height: 24px;
+                  padding: 0 8px 0 5.5px;
+                  text-decoration: none;
+                  color: #fefefe;
+                  border: solid 1px transparent;
+                  background-color: #e62117;
+                  font-size: 11px;
+                  border-radius: 2px 0 0 2px;
+                  box-shadow: 0 1px 0 rgba(0,0,0,0.05);
+                  &:hover {
+                    background-color: #cc181e;
+                  }
+                  .sprite-subscribe {
+                    margin-right: 6px;
+                    background: no-repeat url('../images/youTube-sprite2.webp') -298px -53px;
+                    background-size: auto;
+                    width: 16px;
+                    height: 12px;
+                    z-index: 1999;
+                  }
+                  .text-subscribe {
+                    background: transparent;
+                    font-family: $Robo;
+                    font-size: 12px;
+                  }
+                }
+                .count-container {
+                  height: 24px;
+                  border: 1px solid #ccc;
+                  border-left: none;
+                  border-radius: 0 2px 2px 0;
+                  display: flex;
+                  align-items: center;
+                  padding-left: 7px;
+                  padding: 0 6px;
+                  font-family: $Robo;
+                  color: #737373;
+                  font-size: 11px;
+                }
+              }
+            }
+          }
+        }
+      }
+      .channel-nav-wrap {
+        padding-left: 15px;
+        padding-right: 15px;
+        width: 480px;
+        .channel-nav-items {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          flex-direction: row;
+          .home-border {
+            padding: 0 3px 3px;
+            height: 32px;
+            font-family: $Robo;
+            font-size: 13px;
+            line-height: 29px;
+            cursor: pointer;
+            border-bottom: 3px solid;
+            border-color: #cc181e;
+            color: #333;
+            font-weight: 500;
+          }
+          .nav-items {
+            padding: 0 3px 3px;
+            height: 32px;
+            line-height: 29px;
+            cursor: pointer;
+            color: #666;
+            font-family: $Robo;
+            font-size: 13px;
+            &:hover {
+              border-bottom: 3px solid;
+              border-color: #cc181e;
+            }
+            &:active {
+              color: #333;
+              font-weight: 500;
+            }
+          }
+          .nav-search-item {
+            padding: 0 3px 3px;
+            height: 32px;
+            line-height: 29px;
+            cursor: pointer;
+            .channel-nav-search {
+              opacity: .7;
+              background: no-repeat url('../images/youTube-sprite2.webp') -647px -24px;
+              background-size: auto;
+              width: 15px;
+              height: 15px;
+              margin-top: 6px;
+              &:hover {
+                opacity: 1;
+              }
+            }
+          }
+        }
+      }
+    }
+    .channel-video-feature-container {
+      display: flex;
+      flex-direction: row;
+      .channel-video-container {
+        width: 850px;
+        background: #fff;
+        box-shadow: 0 1px 2px rgba(0,0,0,.1);
+        .video-content-container {
+          width: 850px;
+          min-height: 310px;
+          padding: 15px;
+          border-bottom: 1px solid #e2e2e2;
+          font-family: $Robo;
+          .video-container {
+            height: 100%;
+            float: left;
+            margin-right: 12px;
+          }
+          .video-title {
+            width: 316px;
+            height: 18px;
+            font-weight: 500;
+            max-height: 2.6em;
+            margin-bottom: 3px;
+            font-size: 14px;
+            line-height: 1.3em;
+            overflow: hidden;
+            position: relative;
+            .video-title-a-tag {
+              color: #167ac6;
+              cursor: pointer;
+              text-decoration: none;
+              line-height: 1.3em;
+            }
+          }
+          .view-count-div {
+            height: 15px;
+            font-weight: 400;
+            .view-count {
+              color: #555;
+              font-weight: 400;
+              font-size: 13px;
+            }
+            .published-at {
+              color: #555;
+              margin-left: 3px;
+              font-weight: 400;
+              font-size: 13px;
+            }
+          }
+          .description-div {
+            margin-top: 7px;
+            line-height: 1.3em;
+            -webkit-line-clamp: 10;
+            white-space: pre-wrap;
+            overflow: none;
+            max-height: 12.2em;
+            position: relative;
+            font-weight: 400;
+            color: #555;
+            font-size: 13px;
+            float: none;
+            a {
+              color: #167ac6;
+              text-decoration: none;
+              &:hover {
+                text-decoration: underline;
+              }
+            }
+            .box-red {
+              height: 20px;
+              width: 20px;
+              background-color: red;
+            }
+          }
+          .read-more {
+            color: #167ac6;
+            font-weight: 400;
+            font-size: 13px;
+            cursor: pointer;
+            text-decoration: none;
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+        }
+        .playlist-carousels {
+          .h-landing-main-wrapper {
+            max-width: 808px;
+            min-width: 808px;
+
+            .h-landing-psuedo-container {
+              max-width: 808px;
+              min-width: 808px;
+              .channel-title {
+                margin-left: -34px;
+              }
+              .comment-text {
+                display: none;
+              }
+              .channel-title-name {
+                display: none;
+              }
+              .h-left-arrow-container {
+                left: -13px;
+                &:hover {
+                  margin-left: -21px;
+                  margin-top: -15px;
+                }
+              }
+              .h-right-arrow-container {
+                right: -38px;
+                &:hover {
+                  margin-right: 3px;
+                  margin-top: 65px;
+                }
+              }
+            }
+            .h-trending-video-wrapper{
+              max-width: 808px;
+              padding-left: 0;
+              // Border-bottom is on this class
+            }
+            .channel-img {
+              display: none;
+            }
+          }
+        }////Outer Playlist carousel div
+      }
+      .channel-side-bar {
+        width: 206px;
+        max-width: 206px;
+        vertical-align: top;
+        padding-bottom: 5px;
+        .featured-channels {
+          margin-left: 10px;
+          padding: 15px;
+          font-size: 11px;
+          background: #fff;
+          box-shadow: 0 1px 2px rgba(0,0,0,.1);
+          margin-bottom: 10px;
+          .featured-channels-title {
+            font-family: $Robo;
+            font-weight: 500;
+            color: #333;
+            font-size: 15px;
+            margin-bottom: 10px;
+          }
+          .featured-channel-container {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            margin: 15px 0;
+            .featured-logo {
+              height: 34px;
+              width: 34px;
+              top: 0px;
+              left: 0px;
+              background-repeat: no-repeat;
+              background-position: center;
+              background-size: 100%;
+            }
+            .featured-text-btn-wrap {
+              margin-left: 5px;
+              .feature-channels-text {
+                font-family: $Robo;
+                font-weight: 500;
+                color: #333;
+                cursor: pointer;
+                font-size: 13px;
+                &:hover {
+                  color: #167ac6;
+                }
+              }
+              .feature-subscribe {
+                // padding: 0 8px 0 2px;
+                margin-top: 5px;
+                height: 20px;
+                max-width: 100%;
+                border: 1px solid #ccc;
+                background-color: #f8f8f8;
+                outline: 0;
+                color: #333;
+                font-weight: 500;
+                font-size: 11px;
+                text-decoration: none;
+                border-radius: 2px;
+                box-shadow: 0 1px 0 rgba(0,0,0,0.05);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+                &:hover {
+                  border-color: #bfbfbf;
+                  background-color: #f6f6f6;
+                }
+                .feature-btn-text {
+                  font-weight: 500;
+                }
+              }
+            }
+          }
+        }
+        .related-channels {
+          margin-left: 10px;
+          padding: 15px;
+          font-size: 11px;
+          background: #fff;
+          box-shadow: 0 1px 2px rgba(0,0,0,.1);
+        }
+      }
+    }
+  }
+}

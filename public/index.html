@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html ng-app='you-tube-clone'>
+
+<head>
+    <meta charset="utf-8">
+    <!-- YouTube font default -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+    <link rel="stylesheet" href="./reset.css">
+    <link rel="stylesheet" href="./dist/styles.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" crossorigin="anonymous">
+    <link rel="stylesheet" href="./Images/angular-loading-bar/src/loading-bar.css">
+
+
+    <title>Youtube</title>
+
+</head>
+
+<body ng-controller='mainCtrl'>
+    <section id="loading-bar"></section>
+
+    <ui-view autoscroll='true'></ui-view>
+
+    <!-- SOCKET IO -->
+
+    <section
+    ng-show="chatBox"
+    class="chat-outer-container">
+      <div ng-click="chatBox = false; chatIcon = true" class="top-bar-wrap">
+        <div class="chat">Chat</div>
+        <i class="fa fa-pencil-square-o pencil" aria-hidden="true"></i>
+        <i class="fa fa-cog cog" aria-hidden="true"></i>
+      </div>
+      <div class="chat-messages">
+        <ul id="messages">
+        </ul>
+      </div>
+      <form action="">
+        <input placeholder="type to chat..." class='chat-input' id="m" autocomplete="off" />
+        <button>Send</button>
+      </form>
+      <form
+      ng-disabled='hideChat'
+      ng-show='hideChat'
+      ng-submit='createChatName(chatName)' class="chat-name-form" action="">
+        <div class="chat-name-wrap">
+          <i
+          style="color: #CC181E; font-size: 60px;"
+          class="fa fa-comments-o"
+          aria-hidden="true"></i><br>
+          Create chat name!
+        </div>
+        <input
+        ng-model="chatName"
+        class="chat-name-input"
+        type="text"
+        placeholder="Enter chat name...">
+      </form>
+      <button type="submit" name="button" style="display: none"></button>
+    </section>
+    <i ng-show="chatIcon" ng-click="chatBox = true; chatIcon = false" class="fa fa-comments chat-icon" style='font-size: 40px;' aria-hidden="true"></i>
+
+  <!-- ======== -->
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js'></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-animate.min.js"></script>
+    <script src="./Images/angular-loading-bar/src/loading-bar.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="./angular-ui-sortable/src/sortable.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.5.9/angular-sanitize.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src='./dist/all.js'></script>
+
+</body>
+</html>

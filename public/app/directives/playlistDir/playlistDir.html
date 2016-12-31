@@ -1,0 +1,104 @@
+<section class="playlist-outer-container">
+  <div class="playlist-wrapper">
+    <div class="top-vid-wrapper">
+      <div
+      style="background-size: auto; background: url('./../../Images/playlistView.webp') no-repeat -86px -329px"
+      class="dot-menu"></div>
+      <div
+      class="thumbnail"
+      ng-click='passVideo(userPlaylistVideos[0].video)'
+      ui-sref="video({videoId: userPlaylistVideos[0].video.id})"
+      ng-mouseover='topVidHover = true'
+      ng-mouseleave='topVidHover = false'
+      style="background: url('{{userPlaylistVideos[0].video.snippet.thumbnails.high.url}}') no-repeat; background-size: cover; background-position: 0px;"
+      >
+      <div
+      ng-show='topVidHover'
+      class="hover-play-all-container">
+        <div class="hover-inner-wrap">
+          <div class="play-icon"></div>
+          <div class="play-all">Play all</div>
+        </div>
+      </div>
+      </div>
+      <div class="video-options-wrapper">
+        <div class="watch-later">Watch Later</div>
+        <div class="lock-wrapper">
+          <div class="lock"></div>
+          <!-- <div class="line">|</div> -->
+          <div class="videos"> {{userPlaylistVideos.length}} {{userPlaylistVideos.length > 1 ? "videos" : "video"}}</div>
+          <!-- <div class="updated">updated 2 days ago</div> -->
+        </div>
+        <div class="play-all-wrapper">
+          <div class="links-wrap">
+            <div class="play-all-wrap">
+              <div class="arrow"></div>
+              <div class="play-all">Play all</div>
+            </div>
+            <div class="playlist-settings-wrap">
+              <div class="settings-icon"></div>
+              <div class="playlist-settings">Playlist settings</div>
+            </div>
+            <div class="remove-watched">Remove watched</div>
+          </div>
+          <div class="add-videos">Add videos</div>
+        </div>
+      </div>
+    </div>
+    <!-- <section ui-sortable="{ 'ui-floating': auto }" ng-model="items"> -->
+    <div
+    class="single-video-wrapper"
+    ng-mouseover="showVideoOptions = true"
+    ng-mouseleave="showVideoOptions = false"
+    ng-repeat='video in userPlaylistVideos'>
+      <div class="number">{{$index + 1}}</div>
+      <div
+      style="background: url('{{video.video.snippet.thumbnails.high.url}}') no-repeat; background-size: cover; background-position: 0px"
+      class="thumbnail"
+      ng-mouseover="thumbnailHover = true"
+      ng-mouseleave='thumbnailHover = false'
+      ng-click='passVideo(video.video)'
+      ui-sref="video({videoId: video.video.id})"
+      >
+        <div ng-show='thumbnailHover' class="thumb-hover-wrap">
+          <div class="play-icon"></div>
+        </div>
+      </div>
+      <div class="info-wrap">
+        <div
+        ng-class="{linkColor: showVideoOptions, underline: underlineTitle}"
+        ng-mouseover="underlineTitle = true"
+        ng-mouseleave="underlineTitle = false"
+        ui-sref="video({videoId: video.video.id})"
+        class="title">{{video.video.snippet.title}}</div>
+        <div class="channel">by
+          <span
+          ng-mouseover="underlineChannel = true"
+          ng-mouseleave="underlineChannel = false"
+          ng-class="{linkColor: showVideoOptions, underline: underlineChannel}"
+          >
+            {{video.video.snippet.channelTitle}}
+          </span>
+        </div>
+      </div>
+      <div class="duration">{{video.video.contentDetails.duration}}</div>
+      <div ng-show="showVideoOptions" class="move-video">
+        <div class="dots"></div>
+      </div>
+      <div
+      ng-show="showVideoOptions"
+      ng-click="removeVideo(video.id)"
+      class="remove-video-wrap">
+        <i
+        style='margin-top: -1px'
+        class="fa fa-times remove-x"
+        aria-hidden="true"></i>
+        <div class="remove-video">Remove</div>
+      </div>
+    </div>
+
+<!-- </section> -->
+
+  </div>
+
+</section>

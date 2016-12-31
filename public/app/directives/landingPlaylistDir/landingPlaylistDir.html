@@ -1,0 +1,34 @@
+
+<section class="h-landing-main-wrapper">
+
+  <section class="h-landing-psuedo-container">
+
+    <p class="h-trending-title"><playlist-info-dir playlist-id="hplaylist.id" thepic="homePlaylistInfo.img"></playlist-info-dir></p>
+
+        <aside class="h-left-arrow-container" id="lcounter">
+            <i class="fa fa-angle-left" aria-hidden="true"></i>
+        </aside>
+        <aside class="h-right-arrow-container" id="rcounter">
+            <i class="fa fa-angle-right" aria-hidden="true"></i>
+        </aside>
+  </section>
+
+  <section class="h-trending-video-wrapper">
+    <section class="h-carousel-wrapper">
+    <aside class="h-h-trending-carousel" ng-repeat='video in videoStatsArr'>
+        <div class="h-thumbnail" style="background: url('{{video.snippet.thumbnails.standard.url}}') no-repeat center; background-size: 100% 138%; background-position: 0px -20px" alt='Trending thumbnail video' ng-click='passVideo(video)' ui-sref='video({videoId: video.id})'>
+        <p class="h-video-duration">{{video.contentDetails.duration}}</p>
+        </div>
+        <div ui-sref='video({videoId: video.id})' class="h-trending-video-title">{{video.snippet.title}}</div>
+        <div ui-sref='channel({channelId: video.snippet.channelId})' class="h-trending-channel-title">{{video.snippet.channelTitle}}</div>
+            <section class="h-video-count-container">
+        <div class="h-trending-view-count">{{video.statistics.viewCount | number}}</div>
+          <div class="h-dot-style">
+            <i class="fa fa-circle" aria-hidden="true"></i>
+          </div>
+          <div class="h-trending-publish">{{publishConverter(video.snippet.publishedAt)}}</div>
+      </section>
+      </aside>
+    </section>
+  </section>
+</section>

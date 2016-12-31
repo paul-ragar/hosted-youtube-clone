@@ -1,0 +1,327 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+// ==== variables
+$com-dir-font: 'Roboto', sans-serif;
+$com-dir-bg-color: #FFFFFF;
+$com-dir-font-color: #767676;
+$com-dir-border-red: #CC181E;
+// ==== mixins
+@mixin container-box-shadow {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+@mixin border-prop {
+  border-bottom: 1px solid #f1f1f1;
+}
+
+@mixin btn-options{
+  background-size: auto;
+  width: 20px;
+  height: 20px;
+  opacity: .5;
+  margin-right: 5px;
+}
+
+@mixin btn-text-options {
+  color: #555555;
+  margin-right: 22px;
+  font-size: 11px;
+}
+
+@mixin container-setting{
+  padding: 15px 17px 15px 15px;
+  width: 100%;
+}
+
+.video-player-main-container{
+  font-family: $com-dir-font;
+  width: 642px;
+
+  .video-container{
+    margin-bottom: 10px;
+  }
+  .video-title-container{
+    background: $com-dir-bg-color;
+    @include container-setting;
+    // @include container-box-shadow;
+    // max-height: 150px;
+    margin-bottom: 10px;
+    .video-title{
+      font-size: 21px;
+      margin-bottom: 15px;
+    }
+    .author-info-container{
+      @include border-prop;
+      padding-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+      .author-info{
+        display: flex;
+        .author-img{
+          margin-right: 10px;
+          img{
+            cursor: pointer;
+            width: 50px;
+            height: 50px;
+          }
+        }
+        .author-channel-info{
+          .author-name{
+            cursor: pointer;
+            margin-bottom: 10px;
+            font-size: 12px;
+            font-weight: bold;
+          }
+          .author-name:hover{
+            text-decoration: underline;
+          }
+          .subscribe-btn-wrap:hover{
+            background-color: $com-dir-border-red;
+          }
+          .subscribe-label-main-wrap{
+            display: flex;
+            .subscribe-btn-wrap{
+              background-color: #e62117;
+              border-radius: 3px 0 0 3px;
+              display: flex;
+              width: 87px;
+              height: 24px;
+              display: flex;
+              justify-content: space-around;
+              align-items: center;
+              .subscribe-btn{
+                background: url("../../Images/videoPlayerDir-sprite.webp") -298px -53px;
+                background-size: auto;
+                width: 16px;
+                height: 12px;
+              }
+              .subscribe-label{
+                color: white;
+                font-size: 12px;
+              }
+            }
+            .subscription-count {
+              font-size: 11px;
+              border: 1px solid #ccc;
+              padding: 0 3px;
+              background-color: #fafafa;
+              color: #555555;
+              display: flex;
+              align-items: center;
+              border-radius: 0 2px 2px 0;
+            }
+          }
+        }
+      }
+      .view-data-wrapper{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+            width: 150px;
+        .view-count{
+          font-size: 19px;
+          display: flex;
+          align-items: flex-end;
+          justify-content: flex-end;
+        }
+        .myProgress {
+          position: relative;
+          width: 100%;
+          height: 2px;
+          background-color: #F1F1F1;
+          .myBar {
+              position: absolute;
+              width: 0;
+              height: 100%;
+              background-color: #167ac6;
+          }
+        }
+      }
+    }
+  }
+
+  .video-title-action-buttons{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 33px;
+    .media-btns{
+      display: flex;
+      align-items: center;
+      .add-btn{
+        background: url("../../Images/videoPlayerDir-sprite.webp") -351px -117px;
+        @include btn-options;
+      }
+      .btn-hover:hover{
+        opacity: .6;
+      }
+      .share-btn{
+        background: url("../../Images/videoPlayerDir-sprite.webp") -182px -42px;
+        @include btn-options;
+      }
+      .more-btn{
+        background: url("../../Images/videoPlayerDir-sprite.webp") -42px -184px;
+        @include btn-options;
+      }
+      .btn-text{
+        @include btn-text-options;
+      }
+      .btn-text:last-child{
+        margin-right: 0px;
+      }
+      .share-button-container{
+        display: flex;
+        align-items: center;
+        .btn-text{
+          @include btn-text-options;
+        }
+      }
+    }
+    .video-reactions{
+      display: flex;
+      align-items: center;
+      .like-btn{
+        background: url("../../Images/videoPlayerDir-sprite.webp") -375px -54px;
+        @include btn-options;
+      }
+      .dislike-btn{
+        background: url("../../Images/videoPlayerDir-sprite.webp") -628px -294px;
+        @include btn-options;
+      }
+      .btn-text{
+        @include btn-text-options;
+      }
+      .btn-text:last-child{
+        margin-right: 0px;
+      }
+    }
+  }
+  .main-description-wrapper{
+    @include container-setting;
+    background: $com-dir-bg-color;
+    font-size: 13px;
+    margin-bottom: 10px;
+    .publish-date-label {
+      font-weight: bold;
+      font-size: 13px;
+      padding-bottom: 10px;
+    }
+    .description-wrapper {
+      .video-description {
+        white-space: pre-wrap;
+        height: 100px;
+        overflow: hidden;
+        margin-bottom: 10px;
+        padding-bottom: 10px;
+        @include border-prop;
+      }
+      .show-more-btn{
+        text-align: center;
+        font-size: 11px;
+        font-weight: bold;
+        color: $com-dir-font-color;
+      }
+      .show {
+        overflow: visible;
+        height: auto;
+      }
+      .video-description a {
+        color: black;
+        text-decoration: none;
+      }
+      .video-description a:hover {
+        color: #167ac6;
+        text-decoration: underline;
+      }
+    }
+  }
+
+  // ==== styling for when share button is pressed ====
+  .video-share-main-container {
+    padding: 15px 17px 10px 15px;
+    width: 642px;
+    background: $com-dir-bg-color;
+    margin-bottom: 10px;
+    .share-tabs-wrapper {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      @include border-prop;
+      .button-options {
+        display: flex;
+        .share-tab{
+          margin-right: 42px;
+          padding-bottom: 10px;
+          color: $com-dir-font-color;
+        }
+        // .share-tab:focus{
+        //   border-bottom: 2px solid $com-dir-border-red;
+        //   color: black;
+        // }
+        .share-tab-border{
+          border-bottom: 2px solid $com-dir-border-red;
+        }
+        #share-button {
+          border-bottom: 2px solid $com-dir-border-red;
+        }
+        // .share-tab:first-child{
+        //   border-bottom: 2px solid $com-dir-border-red;
+        // }
+        .share-tab:hover {
+          color: black;
+        }
+      }
+      .close-btn {
+        background: url("../../Images/videoPlayerDir-sprite.webp") -863px -139px;
+        background-size: auto;
+        width: 10px;
+        height: 10px;
+        opacity: .5;
+      }
+    }
+    .share-container {
+      .icon-list{
+        display: flex;
+        flex-direction: row;
+        .media-icon{
+          width: 32px;
+          height: 32px;
+          margin-right: 5px;
+          margin-bottom: 10px;
+        }
+      }
+      .url-share{
+        input {
+          width: 385px;
+          font-size: 1.6em;
+        }
+      }
+    }
+    .embed-container {
+      input {
+        width: 100%;
+        font-size: 13px;
+        height: 28px;
+      };
+    }
+    .email-container-main-wrap {
+      textarea {
+        min-width: 100%;
+        max-width: 100%;
+        margin-bottom: 10px;
+      }
+      .send-btn{
+        background: #167ac6;
+        border: none;
+        font-size: 11px;
+        color: white;
+        padding: 10px;
+        border-radius: 2px;
+      }
+      .send-btn:hover {
+        background: #126db3;
+      }
+    }
+  }
+}

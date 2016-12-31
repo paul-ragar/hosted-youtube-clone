@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700');
+
+$youtube-logo-red: #E62117;
+$yt-primary-red: #CC181E;
+$yt-selected-gray: #333333;
+$yt-unselected-lightgray: #C8C8C8;
+$left-nav-subcategory-color: #444444;
+$primary-icon-color: #7C7C7C;
+$primary-bg: #FFFFFF;
+$secondary-bg: #F1F1F1;
+$video-main-title: #167AC6;
+$video-sub-title: #767676;
+$search-color: #767676;
+$primary-font-family: 'Roboto', sans-serif;
+
+
+.main-playlist-title-container {
+    color: #333333;
+    font-size: 15px;
+    font-family: "Roboto", sans-serif;
+    line-height: 18px;
+    font-weight: 500;
+    display: flex;
+    /* margin-left: -7px; */
+    z-index: 500;
+  .channel-img{
+    height: 20px;
+    width: 20px;
+    margin-left: 8px;
+    margin-right: 10px;
+  }
+  .channel-title-wrap{
+    .comment-text{
+      color: #767676;
+      font-size: 12px;
+      margin-left: 3px;
+    }
+  }
+}
+
+.channel-title:hover{
+  text-decoration: underline;
+}

@@ -1,0 +1,131 @@
+<div class="channel-page-background">
+  <div class="channel-brand-container">
+    <div class="banner-container">
+      <div class="banner-image" style="background: url('{{channelData.brandingSettings.image.bannerTvImageUrl}}') no-repeat center; background-size: 100%">
+        <!-- <div class="header-links">
+          <ul class="channel-link">
+
+          </ul>
+          <ul class="social-links">
+
+          </ul>
+        </div> -->
+        <a class="logo-a-tag">
+          <img class="logo-img" ng-src="{{channelData.snippet.thumbnails.high.url}}"/>
+        </a>
+      </div>
+      <div class="channel-title-container">
+        <div class="inner-title-container">
+          <div class="title-content-container">
+            <div class="title-container">
+              <h1 class="channel-title">{{channelData.snippet.title}}</h1>
+
+            </div>
+          </div>
+          <div class="subscribe-btn-container">
+            <div class="inner-btn-container">
+              <div class="subscriber-button">
+                <div class="button-text-container">
+                  <div class="sprite-subscribe"></div>
+                  <div class="text-subscribe">Subscribe</div>
+                </div>
+                <div class="count-container">
+                  <p>{{channelData.statistics.subscriberCount | number:0}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="channel-nav-wrap">
+        <ul class="channel-nav-items">
+          <li class="home-border"><a>Home</a></li>
+          <li class="nav-items"><a>Videos</a></li>
+          <li class="nav-items" ><a>Playlists</a></li>
+          <li class="nav-items" ><a>Channels</a></li>
+          <li class="nav-items" ><a>Discussion</a></li>
+          <li class="nav-items" ><a>About</a></li>
+          <li class="nav-search-item"><div class="channel-nav-search"></div></li>
+        </ul>
+      </div>
+    </div>
+    <div class="channel-video-feature-container">
+      <div class="channel-video-container">
+        <div class="video-content-container">
+            <div class="video-container">
+              <iframe id="ytplayer" type="text/html" width="492" height="277"
+                ng-src="{{channelTrailer}}"
+                frameborder="0" allowfullscreen></iframe>
+            </div>
+              <h3 class="video-title">
+                <a class="video-title-a-tag">{{channelData.channelTrailer.snippet.localized.title}}</a>
+              </h3>
+              <div class="view-count-div">
+                <span class="view-count">{{channelData.channelTrailer.statistics.viewCount | number:0}} views</span>
+                <span class="published-at">{{convertTime(channelData.channelTrailer.snippet.publishedAt)}}</span>
+              </div>
+              <p class="description-div" ng-style="moreDescription" ng-bind-html="channelData.channelTrailer.snippet.description | linky">
+              </p>
+              <a class="read-more" ng-click="readMore()">{{readMoreShowLess}}</a>
+        </div>
+        <div class="playlist-carousels">
+          <play-list data-ng-repeat="hplaylist in channelData.playlistData" data-hplaylist="hplaylist" dirmessage="message"></play-list>
+        </div>
+      </div>
+      <div class="channel-side-bar">
+        <div class="featured-channels">
+          <h2>
+            <a class="featured-channels-title">{{channelData.brandingSettings.channel.featuredChannelsTitle}}</a>
+          </h2>
+          <ul>
+            <li class="featured-channel-container" ng-repeat="feature in channelData.featuredChannelsData">
+              <div class="">
+                <a href="#">
+                  <img class="featured-logo" ng-src="{{feature.snippet.thumbnails.high.url}}"></img>
+                </a>
+              </div>
+              <div class="featured-text-btn-wrap">
+                <div class="feature-channels-text-wrap">
+                  <a class="feature-channels-text">{{feature.snippet.title | limitTo: 19}}{{feature.snippet.title.length > 19 ? '...' : ''}}</a>
+                </div>
+                <div class="">
+                  <span>
+                    <button class="feature-subscribe">
+                      <span class="feature-btn-text">Subscribe</span>
+                    </button>
+                  </span>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <!-- <div class="related-channels">
+          <h2>
+            <a href="#"></a>
+          </h2>
+          <ul>
+            <li>
+              <span>
+                <div class="">
+                  <a href="#">
+                    <span></span>
+                  </a>
+                </div>
+                <div class="">
+                  <h3>
+                    <a href="#"></a>
+                  </h3>
+                  <div class="">
+                    <span>
+                      <button></button>
+                    </span>
+                  </div>
+                </div>
+              </span>
+            </li>
+          </ul>
+        </div> -->
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,73 @@
+<section class='search-view-dir-outer-wrap'>
+  <div class="search-vids-wrap">
+    <div class="video-wrap" ng-repeat="video in searchResults track by $index">
+      <div ng-show="channelHover" class="channel-hover-pop-up" ng-mouseenter="keepHovering()" ng-mouseleave="hideChannelHover()">
+        <div class="channel-hover-container" ng-style="hoverPosition" >
+          <div class="banner-div" style="background: url('{{channelInfo.brandingSettings.image.bannerTvImageUrl}}') no-repeat center; background-size: 169%">
+            <a class="channel-logo-a-tag" ui-sref='channel({channelId: channelInfo.id})'>
+              <img class="channel-logo-img"  ng-src="{{channelInfo.snippet.thumbnails.high.url}}"/>
+            </a>
+          </div>
+          <div class="title-video-container">
+            <div class="inner-title-video-container">
+              <a class="channel-title-a-tag" ui-sref='channel({channelId: channelInfo.id})'>{{channelInfo.snippet.title}}</a>
+              <a class="video-count-a-tag">{{channelInfo.statistics.videoCount}} videos</a>
+            </div>
+            <div class="subscriber-button">
+              <div class="button-text-container" ui-sref='channel({channelId: channelInfo.id})'>
+                <div class="sprite-subscribe"></div>
+                <div class="text-subscribe">Subscribe</div>
+              </div>
+              <div class="count-container">
+                <p>{{channelInfo.statistics.subscriberCount}}</p>
+              </div>
+            </div>
+          </div>
+          <div class="description-container">
+            <div class="inner-description-container">
+              <div class="description-div">
+                {{channelInfo.snippet.description | limitTo: 157 }}{{video.snippet.description.length > 157 ? '...' : ''}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="thumbnail-container">
+        <div
+          class='thumbnail'
+          ng-click='passVideo(video)'
+          ui-sref='video({videoId: video.id.videoId})' ng-class="{channelThumbnail: video.id.channelId}"
+          style="background: url('{{video.snippet.thumbnails.high.url}}') no-repeat; background-size: cover; background-position: center"
+          alt="video thumbnail">
+          <p class="video-duration">
+            {{video.duration}}</p>
+        </div>
+      </div>
+      <div class="video-info-wrap">
+        <div class="video-title" ng-click='goToState(video.id.videoId, video.id.channelId)'
+        >{{video.snippet.title}}</div>
+        <div class="channel-title-wrap" ng-class="{channelTitleOpt: video.id.channelId}">
+          <div ui-sref='channel({channelId: video.snippet.channelId})'  ng-mouseenter="showChannelHover(video.snippet.channelId)" ng-mouseleave="hideChannelHover()" class="channel-title">{{video.snippet.channelTitle}}</div>
+          <div class="checkmark"></div>
+        </div>
+        <div class="views-wrap">
+          <div class="one-day-ago" ng-class="{oneDayAgoOpt: video.id.channelId}">{{convertTime(video.snippet.publishedAt)}}</div>
+          <div class="dot" ng-class="{dotOpt: video.id.channelId}">&#8226;</div>
+          <div class='views' ng-class="{viewCountOpt: video.id.channelId}" ng-show="{{video.viewCount}}">{{video.viewCount | number}} views</div>
+          <div class='views' ng-show="{{video.videoCount}}">{{video.videoCount | number}} videos</div>
+          <!-- <div class='views' ng-show="{{video.videoCount}}">{{video.subscriberCount | number}} subscribers</div> -->
+
+        </div>
+        <div class="description">{{ video.snippet.description | limitTo: 150 }}{{video.snippet.description.length > 150 ? '...' : ''}}</div>
+        <div class="channel-and-sub-wrap">
+          <div class="channel-button" ng-class="{channelButtonOpt: video.id.channelId}">CHANNEL</div>
+          <div class="subscriber-info" ng-class="{subscriberInfoOpt: video.id.channelId}">
+            <div class="sub-info-btn">Subscribe</div>
+            <div class="sub-info-count" ng-init="subCount = roundSubs(video.subscriberCount)">{{subCount}}</div>
+          </div>
+        </div>
+      </div>
+      <br>
+    </div>
+  </div>
+</section>

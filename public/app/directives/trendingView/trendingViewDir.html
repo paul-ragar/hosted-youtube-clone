@@ -1,0 +1,85 @@
+
+
+<section class='trending-view-dir-outer-wrap'>
+  <nav class="nav-container">
+    <section class="links-wrap">
+      <nav class="home" ui-sref="landing">Home</nav>
+      <nav class="trending" ui-sref="#">Trending</nav>
+      <nav class="subscriptions">Subscriptions</nav>
+    </section>
+  </nav>
+
+  <div class="trending-vids-wrap">
+    <div class="video-wrap" ng-repeat="video in trendingData">
+      <div
+        class='thumbnail'
+        ng-mouseover='hover = false; hidden = true'
+        ng-mouseleave='hover = true; hidden = false'
+        ng-click='passVideo(video)'
+        ui-sref='video({videoId: video.id})'
+        style="background: url('{{video.snippet.thumbnails.standard.url}}') no-repeat center; background-size: 100% 138%; background-position: 0px -20px"
+        alt="video thumbnail">
+          <p class="video-duration"
+            ng-hide='hidden'
+          >{{video.contentDetails.duration}}</p>
+          <div class="watch-later"
+              ng-class='{watchLater: hover}'
+              ng-mouseover='watchLaterPopup = false'
+              ng-mouseleave='watchLaterPopup = true; signInPopup = false'
+              ng-click="$event.stopPropagation(); addToPlaylist(video); signInPopup = signIn(); checkmark = signIn()"
+          ></div>
+          <div ng-hide='watchLaterPopup' class="watchLaterPopup">Watch Later</div>
+          <div ng-show='signInPopup' class="signInPopup">Sign in</div>
+          <div ng-hide="watchLaterPopup" id="triangle"></div>
+          <!-- <div class='vid-added-wrap'>
+            <div class="vid-added"></div>
+          </div> -->
+          <div
+          ng-click="$event.stopPropagation()"
+          ng-hide='checkmark'
+          class='checkmark-wrap'>
+            <i
+            class="fa fa-check-square"
+            style='margin-top:-2px; color: rgb(85,128,52); font-size: 28px'
+            aria-hidden="true"></i>
+          </div>
+      </div>
+      <div class="video-info-wrap">
+        <div class="video-title">{{video.snippet.title}}</div>
+        <div class="channel-title-wrap">
+          <div class="channel-title">{{video.snippet.channelTitle}}</div>
+          <div class="checkmark"></div>
+        </div>
+        <div class="views-wrap">
+          <div class="one-day-ago">{{videoTime(video.snippet.publishedAt)}}</div>
+          <div class="dot"></div>
+          <div class='views'>{{video.statistics.viewCount | number}} views</div>
+        </div>
+        <div class="description">{{ video.snippet.description | limitTo: 150 }}{{video.snippet.description.length > 150 ? '...' : ''}}</div>
+      </div>
+      <br>
+    </div>
+  </div>
+</section>
+
+<!-- <section ng-click="modal=true" ng-hide="modal" class="modal-container">
+  <div
+  ng-click="$event.stopPropagation()"
+  class="modal-wrap">
+    <form ng-submit="register(newUser)">
+      sign-up: <br>
+      email: <input ng-model="newUser.email" type="text">
+      <br>
+      password: <input ng-model='newUser.password' type="text">
+
+      <button type="submit" name="button">create new user</button>
+    </form>
+    <form ng-submit="login(user)">
+      sign-in:<br>
+      email: <input ng-model="user.email" type="text">
+      <br>
+      password: <input ng-model="user.password" type="text">
+      <button type="submit" name="button">sign in</button>
+    </form>
+  </div>
+</section> -->

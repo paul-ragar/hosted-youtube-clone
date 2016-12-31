@@ -1,0 +1,90 @@
+<div class="side-bar-videos-dir-container">
+
+  <div class='header'>
+    <h4 class="next">Up next</h4>
+    <div class="checkbox">
+      <label class="autoplay">Autoplay</label>
+      <div class="icon"></div>
+      <span class="switch">
+        <span class="toggle"></span>
+      </span>
+    </div>
+  </div>
+
+
+
+  <div class="list-video-container" ng-repeat="video in trendingData">
+    <div
+      class="thumbnail"
+      alt="video thumbnail"
+      ng-click='passVideo(video)'
+      ui-sref='video({videoId: video.id})'
+      style="background:url('{{video.snippet.thumbnails.standard.url}}') no-repeat center; background-size: 100% 138%; background-position: 0px -20px">
+      <p class="video-duration">
+        {{video.contentDetails.duration}}</p>
+    </div>
+    <div class="list-video-info-container">
+      <!-- {{video.snippet.title.split(" ")[0] }} -->
+
+      <!-- displays up to 10 words for each title -->
+      <h5 ui-sref='video({videoId: video.id})' class="title">{{video.snippet.title.split(" ").length > 10 ? video.snippet.title.split(" ")[0] + ' ' + video.snippet.title.split(" ")[1] + ' ' +
+      video.snippet.title.split(" ")[2] + ' ' +
+      video.snippet.title.split(" ")[3] + ' ' +
+      video.snippet.title.split(" ")[4] + ' ' +
+      video.snippet.title.split(" ")[5] + ' ' +
+      video.snippet.title.split(" ")[6] + ' ' +
+      video.snippet.title.split(" ")[7] + ' ' +
+      video.snippet.title.split(" ")[8] + ' ' +
+      video.snippet.title.split(" ")[9] : video.snippet.title}}</h5>
+
+      <p ui-sref="channel({channelId: video.snippet.channelId})"class="small-text"
+
+      >{{video.snippet.channelTitle}}</p>
+
+      <!-- //put this inside the p tags above to access the hover properties -->
+      <!-- ng-mouseenter="showChannelHover(video.snippet.channelId)" ng-mouseleave="hideChannelHover()" -->
+
+
+      <!-- <div ng-show="channelHover" class="channel-hover-pop-up" ng-mouseenter="keepHovering()" ng-mouseleave="hideChannelHover()">
+        <div class="channel-hover-container" ng-style="hoverPosition" >
+          <div class="banner-div" style="background: url('{{channelInfo.brandingSettings.image.bannerTvImageUrl}}') no-repeat center; background-size: 169%">
+            <a class="channel-logo-a-tag" ui-sref='channel({channelId: channelInfo.id})'>
+              <img class="channel-logo-img"  ng-src="{{channelInfo.snippet.thumbnails.high.url}}"/>
+            </a>
+          </div>
+          <div class="title-video-container">
+            <div class="inner-title-video-container">
+              <a class="channel-title-a-tag" ui-sref='channel({channelId: channelInfo.id})'>{{channelInfo.snippet.title}}</a>
+              <a class="video-count-a-tag">{{channelInfo.statistics.videoCount}} videos</a>
+            </div>
+            <div class="subscriber-button">
+              <div class="button-text-container" ui-sref='channel({channelId: channelInfo.id})'>
+                <div class="sprite-subscribe"></div>
+                <div class="text-subscribe">Subscribe</div>
+              </div>
+              <div class="count-container">
+                <p>{{channelInfo.statistics.subscriberCount}}</p>
+              </div>
+            </div>
+          </div>
+          <div class="description-container">
+            <div class="inner-description-container">
+              <div class="description-div">
+                {{channelInfo.snippet.description | limitTo: 157 }}{{video.snippet.description.length > 157 ? '...' : ''}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> -->
+      <p class="small-view-text">{{video.statistics.viewCount | number:0}} views</p>
+
+    </div>
+
+  </div>
+</div>
+
+<section class="load-more-container">
+<p class="loading-content">load more</p>
+<i class="fa fa-ellipsis-h" aria-hidden="true" id="loading-dots"></i>
+
+</section>

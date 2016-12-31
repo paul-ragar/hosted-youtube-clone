@@ -1,0 +1,68 @@
+<div class="comments-dir-main-container">
+  <div class="add-comment-container">
+    <div class="comment-count">
+      <span>COMMENTS • {{commentCount}}</span>
+
+    </div>
+    <div class="add-comment">
+      <div class="user-input">
+        <img class="user-thumbnail" src="../../Images/user-default.png" alt="" />
+        <textarea type="text" class="comment-area" name="" placeholder="Add a public comment" ng-model="addComent"></textarea>
+      </div>
+      <div class="comment-btn">
+        <button class="cancel-comment" type="button">Cancel</button>
+        <button ng-disabled="isDisabled" class="submit-comment" type="button" ng-click="postComment(addComent, vidId, channelId)">Comment</button>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="comment-wrap" ng-repeat="comment in comments.items">
+    <div
+    class="thumbnail-img"
+    style="background: url('{{comment.snippet.topLevelComment.snippet.authorProfileImageUrl}}')"
+    >
+    </div>
+    <div class="comments-container">
+      <div class="original-comment-wrap">
+        <div class="name-wrap">
+          <div class="name">{{comment.snippet.topLevelComment.snippet.authorDisplayName}}</div>
+          <div class="hours">{{commentTime(comment.snippet.topLevelComment.snippet.publishedAt)}}</div>
+        </div>
+        <div class="orig-comment" ng-bind-html="comment.snippet.topLevelComment.snippet.textDisplay">{{comment.snippet.topLevelComment.snippet.textDisplay}}</div>
+      </div>
+      <div class="reply-wrap">
+        <div class="reply">Reply</div>
+        <div class="total-likes">{{comment.snippet.topLevelComment.snippet.likeCount}}</div>
+        <div class="like like-icon"></div>
+        <div class="dislike like-icon"></div>
+      </div>
+      <div class="view-all-wrap">
+        <div class="view-all">{{comment.replies.comments.length === 0 ? '' : 'View'}} {{comment.replies.comments.length === 0 ? '' : comment.replies.comments.length === 1 ? '' : 'all'}} {{comment.replies.comments.length}} {{comment.replies.comments.length === 1 ? 'reply' : 'replies'}}</div>
+        <div class="arrow-icon"></div>
+      </div>
+      <div class="replies">
+        <div class="reply-cont" ng-repeat="reply in comment.replies.comments">
+          <div
+          class="reply-thumbnail"
+          style="background: url('{{reply.snippet.authorProfileImageUrl}}') no-repeat center; background-size: cover"
+          ></div>
+          <div class="reply-comment-wrap">
+            <div class="name-wrap">
+              <div class="name">{{reply.snippet.authorDisplayName}}</div>
+              <div class="time-stamp">{{commentTime(reply.snippet.publishedAt)}}</div>
+            </div>
+            <div class="comment" ng-bind-html="reply.snippet.textDisplay">{{reply.snippet.textDisplay}}</div>
+            <div class="reply-wrap">
+              <div class="sub-reply">Reply</div>
+              <div class="total-likes">{{reply.snippet.likeCount}}</div>
+              <div class="likes l-d-size"></div>
+              <div class="dislikes l-d-size"></div>
+            </div>
+          </div>
+          <!-- <p>Reply Text: {{reply.snippet.textDisplay}}</p> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

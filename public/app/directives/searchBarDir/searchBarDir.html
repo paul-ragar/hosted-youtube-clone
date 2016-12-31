@@ -1,0 +1,239 @@
+
+  <!-- SEARCH BAR -->
+
+<div class="search-bar-dir-outer-container">
+  <div class="sbd-inner-container">
+    <div class="ham-and-logo-container">
+      <div class="ham-btn" ng-click="openHamSlide()">
+        <div class="ham-icon">
+        </div>
+      </div>
+      <div class="yt-logo" ui-sref="landing">
+      </div>
+    </div>
+    <div class="search-and-button-wrapper">
+      <form class="input-and-button-container" ng-submit="searchRequest(searchTerm)">
+        <input class="search-input" type="text" tabindex="1" placeholder="Search" ng-model="searchTerm" >
+        <button class="search-btn" tabindex="2" type="submit"><span class= "search-icon" ></span></button>
+      </form>
+      <div class="upload-and-signin-container">
+<!--
+        <aside class="night-mode-detail">
+          <i class="fa fa-caret-right" aria-hidden="true" class="night-arrow"></i>
+          <p class="night-mode-content">This is night mode</p>
+        </aside> -->
+
+        <aside class="night-mode-container">
+          <i class="fa fa-moon-o" aria-hidden="true"></i>
+        </aside>
+
+        <button class="upload-btn"type="button" name="button">Upload</button>
+
+        <a href='/login'><button  ng-hide="loggedIn" class="signin-btn"type="button" name="button">Sign in</button></a> <button ng-click="signOutModal = true" ng-show="loggedIn" ng-class="showModal()" class="logged-in-btn" type="button" name="button">J</button>
+        <div
+        ng-click="signOutModal = false"
+        ng-show="signOutModal" class="log-out-modal">
+
+          <div class="little-arrow">
+            <div class="inner-little-arrow"></div>
+          </div>
+          <div class="email-wrap">
+
+          </div>
+          <div class="profile-wrap">
+            <div class="profile-img">P</div>
+          </div>
+          <div class="sign-out-wrap">
+            <button type="button" name="button">Add account</button>
+            <button type="button" ng-click="signOut()" name="button">Sign out</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+  <!-- HAM SLIDER -->
+
+<div class="ham-bar-slide-outer-container" ng-show="hamSlider">
+  <div class="hb-padding-container">
+    <div class="hb-inner-container">
+      <ul class="ul-guide-container">
+
+        <!-- home trending history -->
+
+        <li class="li-home-trend-hist">
+          <div class="home-trend-hist-container">
+            <ul class="ul-home-trend-hist">
+              <li class="li-home">
+                <a class="a-home-option" id="home-option" ui-sref="landing">
+                  <span class="span-container">
+                    <span class="span-icon" id="home-icon"></span>
+                    <span class="span-word"><h3>Home</h3></span>
+                  </span>
+                </a>
+              </li>
+              <li class="li-home">
+                <a class="a-home-option" id="trending-option" ui-sref="trending">
+                  <span class="span-container">
+                    <span class="span-icon" id="trending-icon"></span>
+                    <span class="span-word"><h3>Trending</h3></span>
+                  </span>
+                </a>
+              </li>
+              <li class="li-home">
+                <a class="a-home-option" id="history-option" href="#">
+                  <span class="span-container">
+                    <span class="span-icon" id="history-icon"></span>
+                    <span class="span-word"><h3>History</h3></span>
+                  </span>
+                </a>
+              </li>
+              <li class="li-home" ng-show="loggedIn" >
+                <a class="a-home-option" id="watch-later-option" ui-sref="playlist">
+                  <span class="span-container">
+                    <span class="span-icon" id="watch-later-icon"></span>
+                    <span class="span-word"><h3>Watch Later</h3></span>
+                  </span>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <hr class="hth-separator">
+        </li>
+
+        <!-- Categories -->
+
+        <li class="li-categories">
+          <div class="categories-container">
+            <h3 class="best-of-yt">BEST OF YOUTUBE</h3>
+            <ul class="ul-categories">
+              <li class="li-category music">
+                <a class="category-a-tag"href="#">
+                  <span class="category-span-container">
+                    <img src="../images/ham-bar-slide-out-images/category-music.jpg" class="category-img" src="" alt="" />
+                    <span class="category-word"><h3>Music</h3></span>
+                  </span>
+                </a>
+              </li>
+              <li class="li-category sports">
+                <a class="category-a-tag"href="#">
+                  <span class="category-span-container">
+                    <img src="../images/ham-bar-slide-out-images/category-sports.jpg"  class="category-img" src="" alt="" />
+                    <span class="category-word"><h3>Sports</h3></span>
+                  </span>
+                </a>
+              </li>
+              <li class="li-category gaming">
+                <a class="category-a-tag"href="#">
+                  <span class="category-span-container">
+                    <img src="../images/ham-bar-slide-out-images/category-gaming.jpg"  class="category-img" src="" alt="" />
+                    <span class="category-word"><h3>Gaming</h3></span>
+                  </span>
+                </a>
+              </li>
+              <li class="li-category movies">
+                <a class="category-a-tag"href="#">
+                  <span class="category-span-container">
+                    <img src="../images/ham-bar-slide-out-images/category-movies.jpg"  class="category-img" src="" alt="" />
+                    <span class="category-word"><h3>Movies</h3></span>
+                  </span>
+                </a>
+              </li>
+              <li class="li-category tv">
+                <a class="category-a-tag"href="#">
+                  <span class="category-span-container">
+                    <img src="../images/ham-bar-slide-out-images/category-tv.jpg"  class="category-img" src="" alt="" />
+                    <span class="category-word"><h3>TV Shows</h3></span>
+                  </span>
+                </a>
+              </li>
+              <li class="li-category news">
+                <a class="category-a-tag"href="#">
+                  <span class="category-span-container">
+                    <img src="../images/ham-bar-slide-out-images/category-news.jpg"  class="category-img" src="" alt="" />
+                    <span class="category-word"><h3>News</h3></span>
+                  </span>
+                </a>
+              </li>
+              <li class="li-category live">
+                <a class="category-a-tag"href="#">
+                  <span class="category-span-container">
+                    <img src="../images/ham-bar-slide-out-images/category-live.jpg"  class="category-img" src="" alt="" />
+                    <span class="category-word"><h3>Live</h3></span>
+                  </span>
+                </a>
+              </li>
+              <li class="li-category spotlight">
+                <a class="category-a-tag"href="#">
+                  <span class="category-span-container">
+                    <img src="../images/ham-bar-slide-out-images/category-spotlight.jpg"  class="category-img" src="" alt="" />
+                    <span class="category-word"><h3>Spotlight</h3></span>
+                  </span>
+                </a>
+              </li>
+              <li class="li-category three-sixty">
+                <a class="category-a-tag"href="#">
+                  <span class="category-span-container">
+                    <img src="../images/ham-bar-slide-out-images/category-threesixty.jpg"  class="category-img" src="" alt="" />
+                    <span class="category-word"><h3>360° Video</h3></span>
+                  </span>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <hr class="category-separator">
+        </li>
+
+        <!-- Browse Channels -->
+
+
+        <li class="li-browse">
+          <div class="browse-container">
+            <ul class="ul-browse">
+              <li class="li-browse">
+                <a class="a-browse" id="browse-option">
+                  <span class="browse-span-container">
+                    <span class="browse-icon" id="browse-icon"></span>
+                    <span class="browse-text-container"><h3 >Browse channels</h3></span>
+                  </span>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <hr class="browse-separator">
+        </li>
+
+        <!-- Sign in -->
+
+        <li ng-hide="loggedIn" class="li-sign-in">
+          <p class="p-sign">Sign in now to see your channels and recommendations!</p>
+          <div class="button-div">
+            <button  class="signin-btn"type="button" name="button">Sign in</button>
+          </div>
+          <hr class="signin-separator">
+        </li>
+
+        <!-- YouTube Red -->
+
+        <li class="li-yt-red">
+          <div class="yt-container">
+            <ul class="ul-yt">
+              <li class="li-yt">
+                <a class="a-yt" id="yt-option">
+                  <span class="yt-span-container">
+                    <span class="yt-icon" id="yt-icon"></span>
+                    <span class="yt-text-container"><h3>YouTube Red</h3></span>
+                  </span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
